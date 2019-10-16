@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.5</Version>
+    <Authors>WIG</Authors>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId />
+    <PackageProjectUrl>https://github.com/WorkIsGood/wig-core</PackageProjectUrl>
+    <PackageIcon>wig_logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/WorkIsGood/wig-core</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <ProjectReference Include="..\..\WIG.Core\WIG.Core.csproj" />
+    <ProjectReference Include="..\WIG.Core\WIG.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\wig_logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
