@@ -27,7 +27,7 @@ steps:
   displayName: Packing Nuget Package
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: 'src/WIG.Core.Web/*.csproj'
     versioningScheme: 'off'
     verbosityPack: 'Minimal'
 
