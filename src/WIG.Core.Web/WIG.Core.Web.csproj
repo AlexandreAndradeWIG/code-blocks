@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.5</Version>
     <Authors>WIG</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
