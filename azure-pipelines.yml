@@ -17,8 +17,16 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: Running Tests
   inputs:
     command: 'test'
     arguments: '--configuration $(buildConfiguration)'
     testRunTitle: 'dotnet test $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Packing Nuget Package
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
 
