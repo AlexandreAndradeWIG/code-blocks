@@ -31,3 +31,12 @@ steps:
     versioningScheme: 'off'
     verbosityPack: 'Minimal'
 
+- task: NuGetCommand@2
+  displayName: Publishing Nuget Package
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    allowPackageConflicts: true
+    publishVstsFeed: 'bed8aa70-9298-4b0e-85c5-885fff615f21'
+
