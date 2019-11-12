@@ -32,6 +32,7 @@ steps:
     verbosityPack: 'Minimal'
 
 - task: NuGetCommand@2
+  displayName: Publishing Package to nuget.org
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
