@@ -5,13 +5,23 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WIG.Core.Web", "src\WIG.Core.Web\WIG.Core.Web.csproj", "{0628AA8B-3230-4041-B05C-C6C190E6653A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIG.Core", "src\WIG.Core\WIG.Core.csproj", "{F64B6E64-2176-4E4E-8DA9-FE9A81FE3F15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WIG.Core", "src\WIG.Core\WIG.Core.csproj", "{F64B6E64-2176-4E4E-8DA9-FE9A81FE3F15}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89A7C2BF-EE7D-44B0-BBCA-7D317C801E06}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B442A919-2F91-4014-ACE3-C8F2E6A71221}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIG.Core.Tests", "tests\WIG.Core.Tests\WIG.Core.Tests.csproj", "{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WIG.Core.Tests", "tests\WIG.Core.Tests\WIG.Core.Tests.csproj", "{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20D80A1D-C1E1-482D-954C-423C4A59D3DB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		azure-pipelines-prod.yml = azure-pipelines-prod.yml
+		azure-pipelines.yml = azure-pipelines.yml
+		README.md = README.md
+		wig_logo.png = wig_logo.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
