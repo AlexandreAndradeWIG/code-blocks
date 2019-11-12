@@ -12,4 +12,11 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <None Include="..\..\wig_logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
