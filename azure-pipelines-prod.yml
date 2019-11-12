@@ -32,11 +32,8 @@ steps:
     verbosityPack: 'Minimal'
 
 - task: NuGetCommand@2
-  displayName: Publishing Nuget Package
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    allowPackageConflicts: true
-    publishVstsFeed: '9bff8392-7e81-4e2e-8fa8-fa4ca5d105dc/8a65fc91-dad3-416e-b316-93e5f71c9cc6'
-
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'WIG-Core (nuget.org)'
