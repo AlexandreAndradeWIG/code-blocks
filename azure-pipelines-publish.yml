@@ -34,7 +34,7 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
-    publishFeedCredentials: 'Blocks-Publish'
+    publishFeedCredentials: 'Blocks-Publish-Connection'
     allowPackageConflicts: true
 
 
