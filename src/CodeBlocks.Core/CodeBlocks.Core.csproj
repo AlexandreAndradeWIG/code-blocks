@@ -4,12 +4,13 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>0.0.1</Version>
     <Authors>WIG</Authors>
-    <PackageId>blocks.core</PackageId>
+    <PackageId>codeblocks.core</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/WorkIsGood/blocks</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/WorkIsGood/code-blocks</PackageProjectUrl>
     <PackageIcon>blocks_logo.png</PackageIcon>
-    <RepositoryUrl>https://github.com/WorkIsGood/blocks</RepositoryUrl>
+    <RepositoryUrl>https://github.com/WorkIsGood/code-blocks</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Product>CodeBlocks.Core</Product>
   </PropertyGroup>
 
 

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Blocks.Core.Model;
+using CodeBlocks.Core.Model;
 using Xunit;
 
-namespace Blocks.Core.Tests
+namespace CodeBlocks.Core.Tests
 {
     public class ResultTests
     {

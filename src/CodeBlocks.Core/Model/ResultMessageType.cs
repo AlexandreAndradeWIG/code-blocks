@@ -1,4 +1,4 @@
-﻿namespace Blocks.Core.Model
+﻿namespace CodeBlocks.Core.Model
 {
     public enum ResultMessageType
     {

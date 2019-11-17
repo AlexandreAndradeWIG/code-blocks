@@ -1,6 +1,6 @@
-﻿using Blocks.Core.Model;
+﻿using CodeBlocks.Core.Model;
 
-namespace Blocks.Core.Web.Model
+namespace CodeBlocks.Core.Web.Model
 {
     /// <summary>
     /// 

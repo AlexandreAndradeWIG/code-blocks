@@ -1,4 +1,4 @@
-﻿namespace Blocks.Core.Web.Model
+﻿namespace CodeBlocks.Core.Web.Model
 {
     public interface IWebResult
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blocks.Core.Web.Operations
+namespace CodeBlocks.Core.Web.Operations
 {
     public interface IOperationRequest
     {

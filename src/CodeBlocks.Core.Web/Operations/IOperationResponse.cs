@@ -1,4 +1,4 @@
-﻿namespace Blocks.Core.Web.Operations
+﻿namespace CodeBlocks.Core.Web.Operations
 {
     public interface IOperationResponse
     {

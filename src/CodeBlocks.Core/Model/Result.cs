@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Blocks.Core.Model
+namespace CodeBlocks.Core.Model
 {
     public class Result : IResult
     {

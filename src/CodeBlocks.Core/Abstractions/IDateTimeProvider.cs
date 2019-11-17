@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blocks.Core.Abstractions
+namespace CodeBlocks.Core.Abstractions
 {
     /// <summary>
     /// Abstraction for a DateTime providing service.
