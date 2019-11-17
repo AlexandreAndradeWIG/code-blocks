@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>WIG</Authors>
+    <PackageId>codeblocks.web</PackageId>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/WorkIsGood/code-blocks</PackageProjectUrl>
+    <PackageIcon>blocks_logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/WorkIsGood/code-blocks</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Product>CodeBlocks.Web</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\blocks_logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeBlocks.Core\CodeBlocks.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WIG.Core.Model
+namespace CodeBlocks.Core.Model
 {
     public class Result : IResult
     {

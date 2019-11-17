@@ -1,4 +1,4 @@
-﻿namespace WIG.Core.Model
+﻿namespace CodeBlocks.Core.Model
 {
     public class ResultMessage
     {
