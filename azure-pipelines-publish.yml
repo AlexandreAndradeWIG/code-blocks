@@ -35,7 +35,8 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'Blocks-Publish'
-    allowPackageConflicts: true
+    # allowPackageConflicts: true
+
 
 
 - task: GitHubRelease@1
