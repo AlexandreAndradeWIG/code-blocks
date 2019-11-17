@@ -6,10 +6,10 @@ Generic and agnostic .NET Core building blocks to be used in other projects.
 
 ## Packages
 
-| Package     | Nuget                                                | Downloads                                             |
-|-------------|------------------------------------------------------|-------------------------------------------------------|
-| Blocks.Core | ![Nuget](https://img.shields.io/nuget/v/blocks.core) | ![Nuget](https://img.shields.io/nuget/dt/blocks.core) |
-| Blocks.Web  | ![Nuget](https://img.shields.io/nuget/v/blocks.web)  | ![Nuget](https://img.shields.io/nuget/dt/blocks.web)  |
+| Package     | Nuget                                                    | Downloads                                                 |
+|-------------|----------------------------------------------------------|-----------------------------------------------------------|
+| Blocks.Core | ![Nuget](https://img.shields.io/nuget/v/codeblocks.core) | ![Nuget](https://img.shields.io/nuget/dt/codeblocks.core) |
+| Blocks.Web  | ![Nuget](https://img.shields.io/nuget/v/codeblocks.web)  | ![Nuget](https://img.shields.io/nuget/dt/codeblocks.web)  |
 
 
 
