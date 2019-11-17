@@ -20,6 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WIG.Core\Blocks.Core.csproj" />
+    <ProjectReference Include="..\Blocks.Core\Blocks.Core.csproj" />
   </ItemGroup>
 </Project>
