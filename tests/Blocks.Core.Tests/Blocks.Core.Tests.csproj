@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\WIG.Core\WIG.Core.csproj" />
+    <ProjectReference Include="..\..\src\WIG.Core\Blocks.Core.csproj" />
   </ItemGroup>
 
 </Project>

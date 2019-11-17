@@ -1,4 +1,4 @@
-﻿namespace WIG.Core.Model
+﻿namespace Blocks.Core.Model
 {
     public interface IResult
     {

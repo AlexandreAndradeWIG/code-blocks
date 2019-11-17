@@ -1,26 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.8</Version>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>0.0.1</Version>
     <Authors>WIG</Authors>
-    <PackageId>wig.core.web</PackageId>
+    <PackageId>blocks.web</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/WorkIsGood/wig-core</PackageProjectUrl>
-    <PackageIcon>wig_logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/WorkIsGood/blocks</PackageProjectUrl>
+    <PackageIcon>blocks_logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/WorkIsGood/wig-core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <ProjectReference Include="..\WIG.Core\WIG.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\wig_logo.png">
+    <None Include="..\..\blocks_logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WIG.Core\Blocks.Core.csproj" />
   </ItemGroup>
 </Project>

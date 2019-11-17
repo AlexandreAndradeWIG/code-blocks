@@ -1,6 +1,6 @@
-﻿using WIG.Core.Model;
+﻿using Blocks.Core.Model;
 
-namespace WIG.Core.Web.Model
+namespace Blocks.Core.Web.Model
 {
     /// <summary>
     /// 

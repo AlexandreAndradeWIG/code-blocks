@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WIG.Core.Abstractions
+namespace Blocks.Core.Abstractions
 {
     /// <summary>
     /// Abstraction for a DateTime providing service.

@@ -1,4 +1,4 @@
-﻿namespace WIG.Core.Web.Operations
+﻿namespace Blocks.Core.Web.Operations
 {
     public interface IOperationResponse
     {

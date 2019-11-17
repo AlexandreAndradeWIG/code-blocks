@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using WIG.Core.Model;
+using Blocks.Core.Model;
 using Xunit;
 
-namespace WIG.Core.Tests
+namespace Blocks.Core.Tests
 {
     public class ResultTests
     {
