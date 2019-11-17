@@ -36,3 +36,16 @@ steps:
     nuGetFeedType: 'external'
     publishFeedCredentials: 'WIG-Core (nuget.org)'
     allowPackageConflicts: true
+
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_antunesl'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    tagPattern: 'v*'
+    releaseNotesSource: 'inline'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
