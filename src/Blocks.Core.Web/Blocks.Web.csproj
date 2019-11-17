@@ -8,7 +8,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/WorkIsGood/blocks</PackageProjectUrl>
     <PackageIcon>blocks_logo.png</PackageIcon>
-    <RepositoryUrl>https://github.com/WorkIsGood/wig-core</RepositoryUrl>
+    <RepositoryUrl>https://github.com/WorkIsGood/blocks</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
