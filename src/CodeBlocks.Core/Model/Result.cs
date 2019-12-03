@@ -5,31 +5,60 @@ namespace CodeBlocks.Core.Model
 {
     public class Result : IResult
     {
-        public bool Success { get; private set; }
+        public bool Success { get; } = true;
 
-        public string ErrorMessage
+        //public string ErrorMessage
+        //{
+        //    get
+        //    {
+        //        if (Messages == null || Messages.Count == 0)
+        //            return null;
+
+        //        return Messages.FirstOrDefault(m => m.Type == ResultMessageType.Error)?.Content;
+        //    }
+        //}
+
+        //public string SuccessMessage
+        //{
+        //    get
+        //    {
+        //        if (Messages == null || Messages.Count == 0)
+        //            return null;
+
+        //        return Messages.FirstOrDefault(m => m.Type == ResultMessageType.Success)?.Content;
+        //    }
+        //}
+
+
+
+        public List<ResultMessage> Messages { get; } = new List<ResultMessage>();
+
+        public List<ResultMessage> ValidationErrorsMessages
         {
             get
             {
-                if (Messages == null || Messages.Count == 0)
-                    return null;
-
-                return Messages.FirstOrDefault(m => m.Type == ResultMessageType.Error)?.Content;
+                return Messages?.Where(m => m.Type == ResultMessageType.ValidationError).ToList();
             }
         }
 
-        public string SuccessMessage
+        public List<ResultMessage> SuccessMessages
         {
             get
             {
-                if (Messages == null || Messages.Count == 0)
-                    return null;
-
-                return Messages.FirstOrDefault(m => m.Type == ResultMessageType.Success)?.Content;
+                return Messages?.Where(m => m.Type == ResultMessageType.Success).ToList();
             }
         }
 
-        public List<ResultMessage> Messages { get; set; }
+        public List<ResultMessage> ErrorsMessages
+        {
+            get
+            {
+                return Messages?.Where(m => m.Type == ResultMessageType.Error).ToList();
+            }
+        }
+
+
+
 
 
         public Result()
@@ -37,9 +66,36 @@ namespace CodeBlocks.Core.Model
 
         }
 
-        public Result(bool success)
+        public Result(bool success, List<ResultMessage> resultMessages = null)
         {
             Success = success;
+            if (resultMessages != null)
+            {
+                Messages.AddRange(resultMessages);
+            }
         }
+    }
+
+    public class Result<T> : Result, IResult<T>
+    {
+        public Result() : base()
+        {
+
+        }
+        public Result(T value) : base()
+        {
+            Value = value;
+        }
+
+        public Result(bool success, List<ResultMessage> resultMessages = null) : base(success, resultMessages)
+        {
+        }
+
+        public Result(bool success, T value, List<ResultMessage> resultMessages = null) : base(success, resultMessages)
+        {
+            Value = value;
+        }
+
+        public T Value { get; }
     }
 }
