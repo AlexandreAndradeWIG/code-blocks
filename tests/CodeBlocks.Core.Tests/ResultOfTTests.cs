@@ -5,12 +5,12 @@ using Xunit;
 
 namespace CodeBlocks.Core.Tests
 {
-    public class ResultTests
+    public class ResultOfTTests
     {
         [Fact]
         public void Result_Empty_Ctor_Success()
         {
-            IResult result = new Result();
+            IResult<int> result = new Result<int>();
             Assert.True(result.Success);
         }
 
@@ -19,7 +19,7 @@ namespace CodeBlocks.Core.Tests
         [InlineData(true)]
         public void Result_Ctor_Success(bool success)
         {
-            IResult result = new Result(success);
+            IResult<int> result = new Result<int>(success);
             Assert.Equal(success, result.Success);
         }
 
@@ -29,8 +29,7 @@ namespace CodeBlocks.Core.Tests
         [InlineData(2)]
         public void Result_Has_Error_Messages(int errorCount)
         {
-            var result = new Result(false, GetErrorMessages(errorCount).ToList());
-
+            var result = new Result<int>(false, GetErrorMessages(errorCount).ToList());
             Assert.NotNull(result.ErrorsMessages);
             Assert.Equal(errorCount, result.ErrorsMessages.Count);
             Assert.Equal(GetErrorMessageContent(1), result.ErrorsMessages.FirstOrDefault()?.Content);

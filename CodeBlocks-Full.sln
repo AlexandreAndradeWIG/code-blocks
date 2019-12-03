@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89A7C2BF-EE7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B442A919-2F91-4014-ACE3-C8F2E6A71221}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blocks.Core.Tests", "tests\CodeBlocks.Core.Tests\Blocks.Core.Tests.csproj", "{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBlocks.Core.Tests", "tests\CodeBlocks.Core.Tests\CodeBlocks.Core.Tests.csproj", "{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20D80A1D-C1E1-482D-954C-423C4A59D3DB}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		blocks_logo.jpg = blocks_logo.jpg
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBlocks.Web.Tests", "tests\CodeBlocks.Web.Tests\CodeBlocks.Web.Tests.csproj", "{FEC68C30-D4CF-4639-B6E5-A7323C140770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0117496B-5AB5-4D63-A01C-1D7F737FA3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC68C30-D4CF-4639-B6E5-A7323C140770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC68C30-D4CF-4639-B6E5-A7323C140770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC68C30-D4CF-4639-B6E5-A7323C140770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC68C30-D4CF-4639-B6E5-A7323C140770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{0628AA8B-3230-4041-B05C-C6C190E6653A} = {89A7C2BF-EE7D-44B0-BBCA-7D317C801E06}
 		{F64B6E64-2176-4E4E-8DA9-FE9A81FE3F15} = {89A7C2BF-EE7D-44B0-BBCA-7D317C801E06}
 		{0117496B-5AB5-4D63-A01C-1D7F737FA3FC} = {B442A919-2F91-4014-ACE3-C8F2E6A71221}
+		{FEC68C30-D4CF-4639-B6E5-A7323C140770} = {B442A919-2F91-4014-ACE3-C8F2E6A71221}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D661C731-B328-4DE0-A1AE-4CB78FAE9363}
