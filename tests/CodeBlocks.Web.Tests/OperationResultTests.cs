@@ -33,10 +33,10 @@ namespace CodeBlocks.Web.Tests
         public void OperationResult_Ctor_Invalid()
         {
             var errorCount = 10;
-            var validationErrors = new List<ResultMessage>();
+            var validationErrors = new List<ValidationError>();
             for (int i = 0; i < errorCount; i++)
             {
-                validationErrors.Add(ResultMessage.ValidationError($"val error {i}"));
+                validationErrors.Add(new ValidationError { Code = $"{i}", Error = $"val error {i}" });
             }
 
 
@@ -44,8 +44,8 @@ namespace CodeBlocks.Web.Tests
             var result1 = OperationResult<int>.Invalid(validationErrors);
             Assert.False(result1.Success);
             Assert.Equal(ResultStatus.Invalid, result1.Status);
-            Assert.NotNull(result1.ValidationErrorsMessages);
-            Assert.Equal(errorCount, result1.ValidationErrorsMessages.Count);
+            Assert.NotNull(result1.ValidationErrors);
+            Assert.Equal(errorCount, result1.ValidationErrors.Count);
 
             // Created with ctor
             var result3 = new OperationResult<int>(ResultStatus.Invalid);
