@@ -1,10 +1,13 @@
 ﻿using CodeBlocks.Core.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
 namespace CodeBlocks.Core.Web.Operations
 {
     public class OperationResult : Result
     {
+        [JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
@@ -19,6 +22,7 @@ namespace CodeBlocks.Core.Web.Operations
     }
     public class OperationResult<T> : Result<T>
     {
+        [JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
