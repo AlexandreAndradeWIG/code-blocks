@@ -4,7 +4,6 @@
     {
         Success,
         Error,
-        ValidationError,
         Information
     }
 }
