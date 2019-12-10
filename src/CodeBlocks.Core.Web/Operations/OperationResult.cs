@@ -5,7 +5,7 @@ namespace CodeBlocks.Core.Web.Operations
 {
     public class OperationResult : Result
     {
-        public ResultStatus Status { get; } = ResultStatus.Ok;
+        public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
         public OperationResult() : base()
@@ -19,7 +19,7 @@ namespace CodeBlocks.Core.Web.Operations
     }
     public class OperationResult<T> : Result<T>
     {
-        public ResultStatus Status { get; } = ResultStatus.Ok;
+        public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
 
