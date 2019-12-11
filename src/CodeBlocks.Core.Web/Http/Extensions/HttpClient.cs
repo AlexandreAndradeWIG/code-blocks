@@ -104,19 +104,18 @@ namespace CodeBlocks.Web.Http.Extensions
             }
 
             if (throwOnError)
-                response.EnsureSuccessStatusCode();
-
-            if (response.IsSuccessStatusCode)
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var returnObj = JsonConvert.DeserializeObject<TResponse>(responseContent);
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedAccessException(response.ReasonPhrase);
+                }
+                throw new Exception(response.ReasonPhrase);
+            }
 
-                return returnObj;
-            }
-            else
-            {
-                return default;
-            }
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var returnObj = JsonConvert.DeserializeObject<TResponse>(responseContent);
+
+            return returnObj;
         }
 
         /// <summary>
@@ -135,19 +134,19 @@ namespace CodeBlocks.Web.Http.Extensions
             var response = await httpClient.PutAsync(url, httpContent);
 
             if (throwOnError)
-                response.EnsureSuccessStatusCode();
-
-            if (response.IsSuccessStatusCode)
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var returnObj = JsonConvert.DeserializeObject<TResult>(responseContent);
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedAccessException(response.ReasonPhrase);
+                }
+                throw new Exception(response.ReasonPhrase);
+            }
 
-                return returnObj;
-            }
-            else
-            {
-                return default;
-            }
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var returnObj = JsonConvert.DeserializeObject<TResult>(responseContent);
+
+            return returnObj;
         }
 
         /// <summary>
@@ -174,20 +173,18 @@ namespace CodeBlocks.Web.Http.Extensions
             }
 
             if (throwOnError)
-                response.EnsureSuccessStatusCode();
-
-
-            if (response.IsSuccessStatusCode)
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var returnObj = JsonConvert.DeserializeObject<TResult>(responseContent);
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedAccessException(response.ReasonPhrase);
+                }
+                throw new Exception(response.ReasonPhrase);
+            }
 
-                return returnObj;
-            }
-            else
-            {
-                return default;
-            }
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var returnObj = JsonConvert.DeserializeObject<TResult>(responseContent);
+
+            return returnObj;
         }
     }
 }
