@@ -74,6 +74,13 @@ namespace CodeBlocks.Core.Web.Operations
         public OperationPagedResult(IList<T> value) : base(value)
         {
         }
+        public OperationPagedResult(PagedResult<T> pagedResult) : base(pagedResult.Data)
+        {
+            Page = pagedResult.Page;
+            PageCount = pagedResult.PageCount;
+            PageSize = pagedResult.PageSize;
+            RowCount = pagedResult.RowCount;
+        }
         public OperationPagedResult(ResultStatus status, IList<T> value = default, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(status == ResultStatus.Ok, value, resultMessages, validationErrors)
         {
             Status = status;
