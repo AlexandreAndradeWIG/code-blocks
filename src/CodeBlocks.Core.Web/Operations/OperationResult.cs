@@ -61,14 +61,10 @@ namespace CodeBlocks.Core.Web.Operations
     }
 
 
-    public class OperationPagedResult<T> : PagedResult<T>
+    public class OperationPagedResult<T> : PagedResult<T> where T : class
     {
         [JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
-
-
-        public int Page { get; set; }
-        public int PageSize { get; set; }
 
 
 
