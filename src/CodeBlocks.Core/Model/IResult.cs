@@ -1,4 +1,6 @@
-﻿namespace CodeBlocks.Core.Model
+﻿using System.Collections.Generic;
+
+namespace CodeBlocks.Core.Model
 {
     public interface IResult
     {
@@ -13,5 +15,10 @@
     public interface IResult<T> : IResult
     {
         public T Value { get; }
+    }
+
+    public interface IPagedResult<T> : IResult
+    {
+        public IList<T> Value { get; }
     }
 }

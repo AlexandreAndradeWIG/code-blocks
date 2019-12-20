@@ -12,7 +12,6 @@ namespace CodeBlocks.Core.Model
         public List<ValidationError> ValidationErrors { get; } = new List<ValidationError>();
         public List<ResultMessage> Messages { get; } = new List<ResultMessage>();
 
-
         [JsonIgnore]
         public List<ResultMessage> SuccessMessages
         {
@@ -21,7 +20,6 @@ namespace CodeBlocks.Core.Model
                 return Messages?.Where(m => m.Type == ResultMessageType.Success).ToList();
             }
         }
-
         [JsonIgnore]
         public List<ResultMessage> ErrorsMessages
         {
@@ -30,10 +28,6 @@ namespace CodeBlocks.Core.Model
                 return Messages?.Where(m => m.Type == ResultMessageType.Error).ToList();
             }
         }
-
-
-
-
 
         public Result()
         {

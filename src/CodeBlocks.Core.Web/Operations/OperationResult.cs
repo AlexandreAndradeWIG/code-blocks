@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace CodeBlocks.Core.Web.Operations
 {
+
     public class OperationResult : Result
     {
         [JsonConverter(typeof(StringEnumConverter))]
@@ -25,22 +26,16 @@ namespace CodeBlocks.Core.Web.Operations
         [JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
-
-
         public OperationResult() : base()
         {
-
         }
         public OperationResult(T value) : base(value)
         {
-
         }
         public OperationResult(ResultStatus status, T value = default, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(status == ResultStatus.Ok, value, resultMessages, validationErrors)
         {
             Status = status;
         }
-
-
 
 
         public static OperationResult<T> Ok(T value)
@@ -65,6 +60,48 @@ namespace CodeBlocks.Core.Web.Operations
         }
     }
 
+
+    public class OperationPagedResult<T> : PagedResult<T> where T : class
+    {
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ResultStatus Status { get; set; } = ResultStatus.Ok;
+
+
+
+        public OperationPagedResult() : base()
+        {
+        }
+        public OperationPagedResult(IList<T> value) : base(value)
+        {
+        }
+        public OperationPagedResult(ResultStatus status, IList<T> value = default, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(status == ResultStatus.Ok, value, resultMessages, validationErrors)
+        {
+            Status = status;
+        }
+
+
+        public static OperationPagedResult<T> Ok(IList<T> value)
+        {
+            return new OperationPagedResult<T>(value);
+        }
+        public static OperationPagedResult<T> Error(List<ResultMessage> errors = null)
+        {
+            return new OperationPagedResult<T>(ResultStatus.Error, default, errors);
+        }
+        public static OperationPagedResult<T> NotFound()
+        {
+            return new OperationPagedResult<T>(ResultStatus.NotFound);
+        }
+        public static OperationPagedResult<T> Unauthorized()
+        {
+            return new OperationPagedResult<T>(ResultStatus.Unauthorized);
+        }
+        public static OperationPagedResult<T> Invalid(List<ValidationError> validationErrors = null)
+        {
+            return new OperationPagedResult<T>(ResultStatus.Invalid, default, null, validationErrors);
+        }
+
+    }
 
 
     public enum ResultStatus
