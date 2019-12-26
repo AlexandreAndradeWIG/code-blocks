@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeBlocks.Core.Web.Operations
+﻿namespace CodeBlocks.Core.Web.Operations
 {
     public interface IOperationRequest
     {
-        
+
+    }
+
+    public interface IPagingOperationRequest
+    {
+        int Page { get; }
+        int PageSize { get; }
     }
 }
