@@ -7,7 +7,7 @@
 
     public interface IPagingOperationRequest
     {
-        int Page { get; }
-        int PageSize { get; }
+        int? Page { get; }
+        int? PageSize { get; }
     }
 }
