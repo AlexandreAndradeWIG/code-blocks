@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeBlocks.Core.Web.Operations
 {
@@ -45,6 +46,16 @@ namespace CodeBlocks.Core.Web.Operations
         public static OperationResult<T> Error(List<ResultMessage> errors = null)
         {
             return new OperationResult<T>(ResultStatus.Error, default, errors);
+        }
+        public static OperationResult<T> Error(params string[] errors)
+        {
+            var resultMessages = errors.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Error
+            }).ToList();
+
+            return new OperationResult<T>(ResultStatus.Error, default, resultMessages);
         }
         public static OperationResult<T> NotFound()
         {
@@ -94,6 +105,16 @@ namespace CodeBlocks.Core.Web.Operations
         public static OperationPagedResult<T> Error(List<ResultMessage> errors = null)
         {
             return new OperationPagedResult<T>(ResultStatus.Error, default, errors);
+        }
+        public static OperationPagedResult<T> Error(params string[] errors)
+        {
+            var resultMessages = errors.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Error
+            }).ToList();
+
+            return new OperationPagedResult<T>(ResultStatus.Error, default, resultMessages);
         }
         public static OperationPagedResult<T> NotFound()
         {
