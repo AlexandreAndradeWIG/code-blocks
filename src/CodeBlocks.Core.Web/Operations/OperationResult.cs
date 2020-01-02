@@ -21,6 +21,38 @@ namespace CodeBlocks.Core.Web.Operations
         {
             Status = status;
         }
+
+
+        public static OperationResult Ok()
+        {
+            return new OperationResult();
+        }
+        public static OperationResult Error(List<ResultMessage> errors = null)
+        {
+            return new OperationResult(ResultStatus.Error, errors);
+        }
+        public static OperationResult Error(params string[] errors)
+        {
+            var resultMessages = errors.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Error
+            }).ToList();
+
+            return new OperationResult(ResultStatus.Error, resultMessages);
+        }
+        public static OperationResult NotFound()
+        {
+            return new OperationResult(ResultStatus.NotFound);
+        }
+        public static OperationResult Unauthorized()
+        {
+            return new OperationResult(ResultStatus.Unauthorized);
+        }
+        public static OperationResult Invalid(List<ValidationError> validationErrors = null)
+        {
+            return new OperationResult(ResultStatus.Invalid, null, validationErrors);
+        }
     }
     public class OperationResult<T> : Result<T>
     {
