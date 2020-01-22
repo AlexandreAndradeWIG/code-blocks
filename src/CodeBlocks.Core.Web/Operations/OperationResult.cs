@@ -1,5 +1,4 @@
 ﻿using CodeBlocks.Core.Model;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,8 @@ namespace CodeBlocks.Core.Web.Operations
 
     public class OperationResult : Result
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
@@ -24,7 +24,8 @@ namespace CodeBlocks.Core.Web.Operations
     }
     public class OperationResult<T> : Result<T>
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
         public OperationResult() : base()
@@ -74,7 +75,8 @@ namespace CodeBlocks.Core.Web.Operations
 
     public class OperationPagedResult<T> : PagedResult<T> where T : class
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(StringEnumConverter))]
         public ResultStatus Status { get; set; } = ResultStatus.Ok;
 
 
