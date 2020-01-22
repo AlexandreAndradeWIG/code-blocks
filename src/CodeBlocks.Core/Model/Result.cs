@@ -1,13 +1,11 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeBlocks.Core.Model
 {
     public class Result : IResult
     {
-        [JsonProperty]
-        public bool Success { get; } = true;
+        public bool Success { get; set; } = true;
 
         public List<ValidationError> ValidationErrors { get; } = new List<ValidationError>();
         public List<ResultMessage> Messages { get; } = new List<ResultMessage>();
