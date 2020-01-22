@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +11,8 @@ namespace CodeBlocks.Core.Model
         public List<ValidationError> ValidationErrors { get; } = new List<ValidationError>();
         public List<ResultMessage> Messages { get; } = new List<ResultMessage>();
 
-        [JsonIgnore]
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public List<ResultMessage> SuccessMessages
         {
             get
@@ -20,7 +20,8 @@ namespace CodeBlocks.Core.Model
                 return Messages?.Where(m => m.Type == ResultMessageType.Success).ToList();
             }
         }
-        [JsonIgnore]
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public List<ResultMessage> ErrorsMessages
         {
             get
