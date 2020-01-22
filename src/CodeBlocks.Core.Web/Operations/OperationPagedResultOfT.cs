@@ -30,7 +30,6 @@ namespace CodeBlocks.Web.Operations
             Status = status;
         }
 
-
         public static OperationPagedResult<T> Ok(IList<T> value)
         {
             return new OperationPagedResult<T>(value);
