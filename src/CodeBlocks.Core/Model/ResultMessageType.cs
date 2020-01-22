@@ -3,7 +3,11 @@
     public enum ResultMessageType
     {
         Success,
+
         Error,
+
+        Warning,
+
         Information
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CodeBlocks.Core.Web.Operations
+﻿namespace CodeBlocks.Web.Operations
 {
     public interface IOperationRequest
     {
