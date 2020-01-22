@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeBlocks.Core.Model
@@ -47,82 +46,34 @@ namespace CodeBlocks.Core.Model
                 ValidationErrors.AddRange(validationErrors);
             }
         }
-    }
 
-    public class Result<T> : Result, IResult<T>
-    {
-        public Result() : base()
-        {
 
-        }
-        public Result(T value) : base()
+
+
+
+        protected virtual void AddMessage(ResultMessage message)
         {
-            Value = value;
+            Messages.Add(message);
         }
 
-        public Result(bool success, List<ResultMessage> resultMessages = null) : base(success, resultMessages)
+        protected virtual void AddErrorMessage(string message, string code = null)
         {
+            Messages.Add(ResultMessage.Error(message, code));
         }
 
-        public Result(bool success, T value, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(success, resultMessages, validationErrors)
+        protected virtual void AddSuccessMessage(string message, string code = null)
         {
-            Value = value;
+            Messages.Add(ResultMessage.Success(message, code));
         }
 
-        public T Value { get; set; }
-    }
-
-    public class PagedResult<T> : Result where T : class
-    {
-        public IList<T> Data { get; set; }
-
-        /// <summary>
-        /// Current Page number.
-        /// </summary>
-        public int Page { get; set; }
-
-        /// <summary>
-        /// Number of Pages.
-        /// </summary>
-        public int PageCount { get; set; }
-
-        /// <summary>
-        /// Number os item per Page.
-        /// </summary>
-        public int PageSize { get; set; }
-
-        /// <summary>
-        /// Total count of data items.
-        /// </summary>
-        public long RowCount { get; set; }
-
-
-        public long FirstRowOnPage
+        protected virtual void AddWarningMessage(string message, string code = null)
         {
-            get { return (Page - 1) * PageSize + 1; }
+            Messages.Add(ResultMessage.Error(message, code));
         }
 
-        public long LastRowOnPage
+        protected virtual void AddInformationMessage(string message, string code = null)
         {
-            get { return Math.Min(Page * PageSize, RowCount); }
-        }
-
-        public PagedResult() : base()
-        {
-            Data = new List<T>();
-        }
-        public PagedResult(IList<T> value) : base()
-        {
-            Data = value;
-        }
-        public PagedResult(bool success, List<ResultMessage> resultMessages = null) : base(success, resultMessages)
-        {
-            Data = new List<T>();
-        }
-        public PagedResult(bool success, IList<T> value, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(success, resultMessages, validationErrors)
-        {
-            Data = value;
+            Messages.Add(ResultMessage.Information(message, code));
         }
     }
-
 }

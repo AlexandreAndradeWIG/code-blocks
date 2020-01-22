@@ -4,8 +4,7 @@ using System.Linq;
 
 namespace CodeBlocks.Web.Operations
 {
-
-    public class OperationResult : Result
+    public class OperationResult<T> : Result<T>
     {
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
@@ -37,26 +36,30 @@ namespace CodeBlocks.Web.Operations
             }
         }
 
+
         public OperationResult() : base()
         {
-
         }
-        public OperationResult(ResultStatus status, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(status == ResultStatus.Ok, resultMessages, validationErrors)
+        public OperationResult(T value) : base(value)
+        {
+        }
+        public OperationResult(ResultStatus status, T value = default, List<ResultMessage> resultMessages = null, List<ValidationError> validationErrors = null) : base(status == ResultStatus.Ok, value, resultMessages, validationErrors)
         {
             Status = status;
         }
 
+
         #region Static Builders
 
-        public static OperationResult Ok()
+        public static OperationResult<T> Ok(T value)
         {
-            return new OperationResult();
+            return new OperationResult<T>(value);
         }
-        public static OperationResult Error(List<ResultMessage> errors = null)
+        public static OperationResult<T> Error(List<ResultMessage> errors = null)
         {
-            return new OperationResult(ResultStatus.Error, errors);
+            return new OperationResult<T>(ResultStatus.Error, default, errors);
         }
-        public static OperationResult Error(params string[] errors)
+        public static OperationResult<T> Error(params string[] errors)
         {
             var resultMessages = errors.Select(error => new ResultMessage
             {
@@ -64,19 +67,19 @@ namespace CodeBlocks.Web.Operations
                 Type = ResultMessageType.Error
             }).ToList();
 
-            return new OperationResult(ResultStatus.Error, resultMessages);
+            return new OperationResult<T>(ResultStatus.Error, default, resultMessages);
         }
-        public static OperationResult NotFound()
+        public static OperationResult<T> NotFound()
         {
-            return new OperationResult(ResultStatus.NotFound);
+            return new OperationResult<T>(ResultStatus.NotFound);
         }
-        public static OperationResult Unauthorized()
+        public static OperationResult<T> Unauthorized()
         {
-            return new OperationResult(ResultStatus.Unauthorized);
+            return new OperationResult<T>(ResultStatus.Unauthorized);
         }
-        public static OperationResult Invalid(List<ValidationError> validationErrors = null)
+        public static OperationResult<T> Invalid(List<ValidationError> validationErrors = null)
         {
-            return new OperationResult(ResultStatus.Invalid, null, validationErrors);
+            return new OperationResult<T>(ResultStatus.Invalid, default, null, validationErrors);
         }
 
         #endregion
