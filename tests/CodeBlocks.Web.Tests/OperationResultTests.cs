@@ -26,6 +26,17 @@ namespace CodeBlocks.Web.Tests
             Assert.True(result4.Success);
             Assert.Equal(ResultStatus.Ok, result4.Status);
             Assert.Equal(1, result4.Value);
+
+            var result5 = OperationResult<int>.Ok(1);
+            Assert.True(result5.Success);
+            Assert.Equal(ResultStatus.Ok, result5.Status);
+            Assert.Equal(1, result5.Value);
+
+            var result6 = OperationResult<int>.Ok(1, "OK");
+            Assert.True(result6.Success);
+            Assert.Equal(ResultStatus.Ok, result6.Status);
+            Assert.Equal(1, result6.Value);
+            Assert.Equal("OK", result6.UserMessage);
         }
 
 
@@ -67,10 +78,22 @@ namespace CodeBlocks.Web.Tests
             Assert.False(result1.Success);
             Assert.Equal(ResultStatus.Error, result1.Status);
 
-            // Created with ctor
-            var result2 = new OperationResult<int>(ResultStatus.Error);
+            var result2 = OperationResult<int>.Error("Error1");
             Assert.False(result2.Success);
             Assert.Equal(ResultStatus.Error, result2.Status);
+            Assert.Equal(1, result2.Messages.Count);
+            Assert.Equal("Error1", result2.UserMessage);
+
+            var result3 = OperationResult<int>.Error("Error1", "Error2");
+            Assert.False(result3.Success);
+            Assert.Equal(ResultStatus.Error, result3.Status);
+            Assert.Equal(2, result3.Messages.Count);
+            Assert.Equal("Error1", result3.UserMessage);
+
+            // Created with ctor
+            var result10 = new OperationResult<int>(ResultStatus.Error);
+            Assert.False(result10.Success);
+            Assert.Equal(ResultStatus.Error, result10.Status);
         }
 
 
@@ -82,10 +105,22 @@ namespace CodeBlocks.Web.Tests
             Assert.False(result1.Success);
             Assert.Equal(ResultStatus.NotFound, result1.Status);
 
+            var result3 = OperationResult<int>.NotFound("Error1");
+            Assert.False(result3.Success);
+            Assert.Equal(ResultStatus.NotFound, result3.Status);
+            Assert.Equal(1, result3.Messages.Count);
+            Assert.Equal("Error1", result3.UserMessage);
+
+            var result4 = OperationResult<int>.NotFound("Error1", "Error2");
+            Assert.False(result4.Success);
+            Assert.Equal(ResultStatus.NotFound, result4.Status);
+            Assert.Equal(2, result4.Messages.Count);
+            Assert.Equal("Error1", result4.UserMessage);
+
             // Created with ctor
-            var result2 = new OperationResult<int>(ResultStatus.NotFound);
-            Assert.False(result2.Success);
-            Assert.Equal(ResultStatus.NotFound, result2.Status);
+            var result10 = new OperationResult<int>(ResultStatus.NotFound);
+            Assert.False(result10.Success);
+            Assert.Equal(ResultStatus.NotFound, result10.Status);
         }
 
         [Fact]
@@ -95,6 +130,18 @@ namespace CodeBlocks.Web.Tests
             var result1 = OperationResult<int>.Unauthorized();
             Assert.False(result1.Success);
             Assert.Equal(ResultStatus.Unauthorized, result1.Status);
+
+            var result3 = OperationResult<int>.Unauthorized("Error1");
+            Assert.False(result3.Success);
+            Assert.Equal(ResultStatus.Unauthorized, result3.Status);
+            Assert.Equal(1, result3.Messages.Count);
+            Assert.Equal("Error1", result3.UserMessage);
+
+            var result4 = OperationResult<int>.Unauthorized("Error1", "Error2");
+            Assert.False(result4.Success);
+            Assert.Equal(ResultStatus.Unauthorized, result4.Status);
+            Assert.Equal(2, result4.Messages.Count);
+            Assert.Equal("Error1", result4.UserMessage);
 
             // Created with ctor
             var result2 = new OperationResult<int>(ResultStatus.Unauthorized);

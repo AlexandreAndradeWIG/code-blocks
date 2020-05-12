@@ -22,7 +22,7 @@ namespace CodeBlocks.Web.Operations
                     return Messages?.FirstOrDefault(m => m.Type == ResultMessageType.Error)?.Content;
                 }
 
-                if (Status == ResultStatus.Error)
+                if (Status == ResultStatus.Error || Status == ResultStatus.NotFound || Status == ResultStatus.Unauthorized)
                 {
                     return Messages?.FirstOrDefault(m => m.Type == ResultMessageType.Error)?.Content;
                 }
@@ -55,10 +55,23 @@ namespace CodeBlocks.Web.Operations
         {
             return new OperationResult<T>(value);
         }
+
+        public static OperationResult<T> Ok(T value, params string[] messages)
+        {
+            var resultMessages = messages.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Success
+            }).ToList();
+
+            return new OperationResult<T>(ResultStatus.Ok, value, resultMessages);
+        }
+
         public static OperationResult<T> Error(List<ResultMessage> errors = null)
         {
             return new OperationResult<T>(ResultStatus.Error, default, errors);
         }
+
         public static OperationResult<T> Error(params string[] errors)
         {
             var resultMessages = errors.Select(error => new ResultMessage
@@ -69,14 +82,39 @@ namespace CodeBlocks.Web.Operations
 
             return new OperationResult<T>(ResultStatus.Error, default, resultMessages);
         }
+
         public static OperationResult<T> NotFound()
         {
             return new OperationResult<T>(ResultStatus.NotFound);
         }
+
+        public static OperationResult<T> NotFound(params string[] errors)
+        {
+            var resultMessages = errors.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Error
+            }).ToList();
+
+            return new OperationResult<T>(ResultStatus.NotFound, default, resultMessages);
+        }
+
         public static OperationResult<T> Unauthorized()
         {
             return new OperationResult<T>(ResultStatus.Unauthorized);
         }
+
+        public static OperationResult<T> Unauthorized(params string[] errors)
+        {
+            var resultMessages = errors.Select(error => new ResultMessage
+            {
+                Content = error,
+                Type = ResultMessageType.Error
+            }).ToList();
+
+            return new OperationResult<T>(ResultStatus.Unauthorized, default, resultMessages);
+        }
+
         public static OperationResult<T> Invalid(List<ValidationError> validationErrors = null)
         {
             return new OperationResult<T>(ResultStatus.Invalid, default, null, validationErrors);
