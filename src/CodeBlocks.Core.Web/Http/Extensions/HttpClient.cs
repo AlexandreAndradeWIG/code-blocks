@@ -17,15 +17,15 @@ namespace CodeBlocks.Web.Http.Extensions
         /// <typeparam name="TResponse">Type of the response.</typeparam>
         /// <param name="httpClient">HttpClient</param>
         /// <param name="url">Url for the request.</param>
-        /// <param name="throwOnError">If true, the method will throw an Exception when the StatusCode of the response wasn't in 200-299 range.</param>
+        /// <param name="throwOnNotSuccessfull">If true, the method will throw an Exception when the StatusCode of the response wasn't in 200-299 range.</param>
         /// <returns></returns>
-        public static async Task<TResponse> GetJsonAsync<TResponse>(this HttpClient httpClient, string url, bool throwOnError = false)
+        public static async Task<TResponse> GetJsonAsync<TResponse>(this HttpClient httpClient, string url, bool throwOnNotSuccessfull = false)
         {
             var response = await httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
             {
-                if (throwOnError)
+                if (throwOnNotSuccessfull)
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                     {

@@ -51,27 +51,27 @@ namespace CodeBlocks.Core.Model
 
 
 
-        protected virtual void AddMessage(ResultMessage message)
+        public virtual void AddMessage(ResultMessage message)
         {
             Messages.Add(message);
         }
 
-        protected virtual void AddErrorMessage(string message, string code = null)
+        public virtual void AddErrorMessage(string message, string code = null)
         {
             Messages.Add(ResultMessage.Error(message, code));
         }
 
-        protected virtual void AddSuccessMessage(string message, string code = null)
+        public virtual void AddSuccessMessage(string message, string code = null)
         {
             Messages.Add(ResultMessage.Success(message, code));
         }
 
-        protected virtual void AddWarningMessage(string message, string code = null)
+        public virtual void AddWarningMessage(string message, string code = null)
         {
             Messages.Add(ResultMessage.Error(message, code));
         }
 
-        protected virtual void AddInformationMessage(string message, string code = null)
+        public virtual void AddInformationMessage(string message, string code = null)
         {
             Messages.Add(ResultMessage.Information(message, code));
         }

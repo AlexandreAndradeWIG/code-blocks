@@ -49,6 +49,11 @@ namespace CodeBlocks.Web.Extensions
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
         private static string GetQueryStringParameterName(PropertyInfo property)
         {
             var attrs = property.GetCustomAttributes();
@@ -56,6 +61,9 @@ namespace CodeBlocks.Web.Extensions
             {
                 if (attr is QueryStringParameterAttribute authAttr)
                 {
+                    if (string.IsNullOrWhiteSpace(authAttr.Name))
+                        return property.Name;
+
                     return authAttr.Name;
                 }
             }
