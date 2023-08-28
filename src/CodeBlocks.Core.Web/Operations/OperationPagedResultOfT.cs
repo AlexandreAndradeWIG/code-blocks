@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CodeBlocks.Web.Operations
 {
-    public class OperationPagedResult<T> : PagedResult<T> where T : class
+    public class OperationPagedResult<T> : PagedResult<T>, IOperationResult where T : class
     {
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
