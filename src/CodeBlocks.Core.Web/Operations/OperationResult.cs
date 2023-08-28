@@ -5,7 +5,7 @@ using System.Linq;
 namespace CodeBlocks.Web.Operations
 {
 
-    public class OperationResult : Result
+    public class OperationResult : Result, IOperationResult
     {
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter))]
